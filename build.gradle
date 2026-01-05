@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'com.liliana.automation'
+    version = '1.0.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    tasks.withType(Test).configureEach {
+        useTestNG()
+        testLogging {
+            events "passed", "failed", "skipped"
+        }
+    }
+}

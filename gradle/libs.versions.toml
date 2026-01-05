@@ -1,0 +1,19 @@
+[versions]
+java = "17"
+testng = "7.10.2"
+restassured = "5.4.0"
+playwright = "1.43.0"
+slf4j = "2.0.13"
+jackson = "2.17.1"
+
+[libraries]
+testng = { group = "org.testng", name = "testng", version.ref = "testng" }
+
+restassured = { group = "io.rest-assured", name = "rest-assured", version.ref = "restassured" }
+
+playwright = { group = "com.microsoft.playwright", name = "playwright", version.ref = "playwright" }
+
+slf4j-api = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version.ref = "slf4j" }
+
+jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson" }
