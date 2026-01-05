@@ -45,3 +45,14 @@ jobs:
           path: |
             api-tests/build/reports
             ui-tests/build/reports
+
+      - name: Generate Allure Aggregate Report
+        if: always()
+        run: ./gradlew allureAggregateReport
+
+      - name: Upload Allure Report (Aggregated)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: build/allure-report
