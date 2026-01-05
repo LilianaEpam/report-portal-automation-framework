@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="UI Test Suite"
+       parallel="methods"
+       thread-count="3">
+
+    <test name="UI Tests">
+        <groups>
+            <run>
+                <include name="ui"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="ui.tests"/>
+        </packages>
+    </test>
+</suite>

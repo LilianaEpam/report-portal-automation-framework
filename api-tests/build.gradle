@@ -1,0 +1,22 @@
+def profile = project.findProperty("profile") ?: "api"
+
+dependencies {
+    implementation project(':common')
+
+    testImplementation(libs.testng)
+    testImplementation(libs.restassured)
+}
+
+tasks.test {
+    useTestNG {
+        //suites 'src/test/resources/testng-api.xml'
+        if (profile == "smoke") {
+            includeGroups "smoke"
+        } else if (profile == "regression") {
+            includeGroups "api"
+        } else {
+            includeGroups "api"
+        }
+    }
+}
+

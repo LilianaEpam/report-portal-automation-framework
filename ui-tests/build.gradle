@@ -1,0 +1,21 @@
+def profile = project.findProperty("profile") ?: "ui"
+
+dependencies {
+    implementation project(':common')
+
+    testImplementation(libs.testng)
+    testImplementation(libs.playwright)
+}
+
+tasks.test {
+    useTestNG {
+        //suites 'src/test/resources/testng-ui.xml'
+        if (profile == "smoke") {
+            includeGroups "smoke"
+        } else if (profile == "regression") {
+            includeGroups "ui"
+        } else {
+            includeGroups "ui"
+        }
+    }
+}
