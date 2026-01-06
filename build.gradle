@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    //id "io.qameta.allure" version "2.12.0"
 }
 
 allprojects {
@@ -14,21 +13,12 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    //apply plugin: "io.qameta.allure"
 
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
         }
     }
-
-//    allure {
-//        version = libs.versions.allure.get()
-//        useTestNG {
-//            version = libs.versions.allure.get()
-//        }
-//    }
-
 
     dependencies {
         testImplementation(libs.allure.testng)
@@ -37,7 +27,6 @@ subprojects {
     tasks.withType(Test).configureEach {
         useTestNG()
 
-        // Ensure Allure results directory is created
         systemProperty "allure.results.directory",
                 "${buildDir}/allure-results"
 
