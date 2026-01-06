@@ -13,7 +13,7 @@ public abstract class BaseTest {
     @BeforeMethod(alwaysRun = true)
     protected void setUp() {
         log.info("----Test setup started");
-        // Setup común (logs, configs, env)
+        // Setup common (logs, configs, env)
     }
 
     @AfterMethod(alwaysRun = true)

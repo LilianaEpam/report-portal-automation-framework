@@ -1,7 +1,6 @@
 def profile = project.findProperty("profile") ?: "ui"
 
 dependencies {
-    //implementation project(':common')
     testImplementation(testFixtures(project(":common")))
 
     testImplementation(libs.testng)
