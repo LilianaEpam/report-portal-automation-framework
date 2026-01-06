@@ -3,6 +3,7 @@ package api.tests;
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 import base.BaseTest;
+import utils.ConfigManager;
 
 public class HealthCheckApiTest extends BaseTest {
 
@@ -10,7 +11,7 @@ public class HealthCheckApiTest extends BaseTest {
     public void healthCheckShouldReturn200(){
         log.info("Starting health check API test");
         RestAssured.given()
-                .baseUri("https://httpbin.org")
+                .baseUri(ConfigManager.get("base.url.api"))
                 .when()
                 .get("/status/200")
                 .then()

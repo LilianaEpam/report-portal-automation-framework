@@ -5,6 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import org.testng.annotations.Test;
 import base.BaseTest;
+import utils.ConfigManager;
 
 public class LoginUiTest extends BaseTest {
 
@@ -14,7 +15,7 @@ public class LoginUiTest extends BaseTest {
         try(Playwright playwright = Playwright.create()){
             Browser browser = playwright.chromium().launch();
             Page page = browser.newPage();
-            page.navigate("https://example.com");
+            page.navigate(ConfigManager.get("base.url.ui"));
         }
     }
 }
