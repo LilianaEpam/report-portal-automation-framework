@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jan 06 17:19:30 UTC 2026","Tue Jan 06 17:19:31 UTC 2026","1791","Gradle suite","Gradle test","api.tests.HealthCheckApiTest","api.tests.HealthCheckApiTest","healthCheckShouldReturn200","healthCheckShouldReturn200",""
