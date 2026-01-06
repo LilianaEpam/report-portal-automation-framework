@@ -45,3 +45,26 @@ jobs:
           path: |
             api-tests/build/reports
             ui-tests/build/reports
+
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+          curl -o allure.zip -Ls https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.zip
+          unzip allure.zip
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          allure --version
+
+      - name: Generate Allure Report
+        run: |
+          allure generate \
+            api-tests/build/allure-results \
+            ui-tests/build/allure-results \
+            -o build/allure-report --clean
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: build/allure-report
