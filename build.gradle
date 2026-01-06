@@ -32,7 +32,12 @@ subprojects {
 
         testLogging {
             events "passed", "failed", "skipped"
+            showStandardStreams = true
         }
+
+        systemProperty "org.slf4j.simpleLogger.defaultLogLevel", "info"
+        systemProperty "org.slf4j.simpleLogger.showDateTime", "true"
+        systemProperty "org.slf4j.simpleLogger.showThreadName", "true"
     }
 }
 
