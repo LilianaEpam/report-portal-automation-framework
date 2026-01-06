@@ -30,7 +30,7 @@ hs_err_pid*
 Thumbs.db
 
 # =========================
-# Test reports
+# Test reports Allure
 # =========================
 allure-results/
 allure-report/
