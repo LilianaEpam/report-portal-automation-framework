@@ -1,3 +1,7 @@
+permissions:
+  contents: write
+
+
 name: PR Quality Gate
 
 on:
@@ -63,8 +67,10 @@ jobs:
             ui-tests/build/allure-results \
             -o build/allure-report --clean
 
-      - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: allure-report
-          path: build/allure-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: build/allure-report
+          keep_files: false
