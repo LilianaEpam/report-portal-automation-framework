@@ -1,6 +1,26 @@
+//dependencies {
+//    implementation(libs.slf4j.api)
+//    implementation(libs.jackson.databind)
+//
+//    implementation(libs.testng)
+//}
+
+plugins {
+    id 'java-library'
+    id 'java-test-fixtures'
+}
+
 dependencies {
-    implementation(libs.slf4j.api)
+
+    // 🔹 Logging (heredado por api-tests y ui-tests) api(...) → dependencias expuestas a módulos consumidores
+    api(libs.slf4j.api)
+    runtimeOnly(libs.slf4j.simple)
+
+    // 🔹 Utilidades comunes  dependencias internas
     implementation(libs.jackson.databind)
 
-    implementation(libs.testng)
+
+    //implementation(libs.testng)
+    // 🔹 Test framework SOLO para fixtures
+    testFixturesImplementation(libs.testng)
 }
