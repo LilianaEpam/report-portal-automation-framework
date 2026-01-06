@@ -46,6 +46,12 @@ jobs:
             api-tests/build/reports
             ui-tests/build/reports
 
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
+
       - name: Generate Allure Aggregate Report
         if: always()
         run: ./gradlew allureAggregateReport

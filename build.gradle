@@ -39,6 +39,12 @@ subprojects {
             events "passed", "failed", "skipped"
         }
     }
+}
+
+// ===============================
+// Root task: Allure Aggregate
+// ===============================
+if (project == rootProject) {
 
     tasks.register('allureAggregateReport', Exec) {
         group = "verification"
@@ -49,12 +55,11 @@ subprojects {
         workingDir projectDir
 
         commandLine "bash", "-c", """
-        allure generate \
-        ${subprojects.collect { it.file("build/allure-results") }.join(' ')} \
-        -o build/allure-report --clean
-    """
+            allure generate \
+            ${subprojects.collect { it.file("build/allure-results") }.join(' ')} \
+            -o build/allure-report --clean
+        """
     }
 
-
-
 }
+
